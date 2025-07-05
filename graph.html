@@ -29,6 +29,7 @@
     <main>
         <h1>คะแนนสะสมของแต่ละบ้าน</h1>
         <div class="chart-container">
+            <div id="finalScores" class="score-summary">...</div>
             <p class="instruction">คลิกบนพื้นที่กราฟเพื่อเริ่ม</p>
             <canvas id="scoreChart"></canvas>
         </div>
@@ -131,12 +132,25 @@
             });
 
             let currentPoint = -1;
+
+            function showFinalScores() {
+                const finalDiv = document.getElementById('finalScores');
+                let html = '';
+                cumulativeScores.forEach((score, i) => {
+                html += `<span style="color:${settings[i].color}">${settings[i].name}:</span> ${score}<br>`;
+                });
+                finalDiv.innerHTML = html;
+                finalDiv.style.display = 'block';
+            }
+
             function animateNextSegment() {
                 currentPoint++;
                 if (currentPoint >= fullLabels.length) {
                     canvas.style.cursor = 'default';
+                    showFinalScores(); // เรียกแสดงคะแนนรวม
                     return;
                 }
+
                 fullDatasets.forEach((dataset, dsIndex) => {
                     myChart.data.datasets[dsIndex].data[currentPoint] = dataset.data[currentPoint];
                 });
