@@ -19,7 +19,7 @@ main {
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   width: 100%;
-  max-width: 1700px;
+  max-width: 900px;
   text-align: center;
 }
 h1 {
@@ -133,4 +133,18 @@ th {
 tbody td:first-child {
   font-weight: bold;
   background-color: #f2f2f2;
+}
+.score-summary {
+    position: absolute;
+    top: 100px;
+    left: 80px; /* ✅ อยู่มุมซ้ายบน */
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 0.95em;
+    padding: 8px 12px;
+    border-radius: 8px;
+    z-index: 10;
+    display: none;
+    max-width: 250px;
+    line-height: 1.4em;
 }
