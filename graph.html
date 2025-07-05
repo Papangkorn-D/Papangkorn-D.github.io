@@ -41,7 +41,7 @@
             }));
 
             let cumulativeScores = new Array(settings.length).fill(0);
-            for (let i = 0; i <= allScores.length; i++) {
+            for (let i = 0; i < allScores.length; i++) {
                 fullLabels.push(`จุดที่ ${i}`);
                 allScores[i].forEach((score, j) => {
                     cumulativeScores[j] += score || 0;
